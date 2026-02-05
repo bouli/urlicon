@@ -91,7 +91,10 @@ def get_soup_icons_from_url(url, url_soup=None):
 def get_soup_icon_size(soup_icon):
     if not soup_icon.has_attr("sizes"):
         return 1
-    return int(soup_icon["sizes"].split("x")[0])
+    try:
+        return int(soup_icon["sizes"].split("x")[0])
+    except:
+        return 1
 
 
 def get_favicon_from_url(url):
