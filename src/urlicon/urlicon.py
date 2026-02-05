@@ -156,10 +156,11 @@ def requests_get(url):
     cache.set(text=code, cache_id=cache_prefix + url)
     return code
 
+
 def is_file_binary(file_path: str) -> bool:
     try:
-        with open(file_path, 'r') as fp:
+        with open(file_path, "r") as fp:
             fp.read(16)
             return False
     except UnicodeDecodeError:
-            return True
+        return True

@@ -122,8 +122,8 @@ class simple_cache:
 
     def is_file_binary(self, file_path: str) -> bool:
         try:
-            with open(file_path, 'r') as fp:
+            with open(file_path, "r") as fp:
                 fp.read(16)
                 return False
         except UnicodeDecodeError:
-                return True
+            return True
