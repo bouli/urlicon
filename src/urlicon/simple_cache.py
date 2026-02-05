@@ -1,9 +1,9 @@
 import os
 
 
-class string_cache:
+class simple_cache:
     cache_folder: str | None = None
-    cache_files_extension: str = "html"
+    cache_files_extension: str = "cache"
 
     def __init__(self, cache_folder: str | None = None):
         if cache_folder is not None:
@@ -45,7 +45,7 @@ class string_cache:
 
         new_file_name = f"{new_file_index}.{self.cache_files_extension}"
         new_file_path = os.path.join(cache_folder, new_file_name)
-        with open(new_file_path, "w+") as new_file_writer:
+        with open(new_file_path, "wb") as new_file_writer:
             new_file_writer.write(text)
 
     @safe_cache_id
@@ -90,7 +90,12 @@ class string_cache:
         cached_file_path = os.path.join(cache_folder, cached_file_name)
         if not os.path.exists(cached_file_path):
             return None
-        with open(cached_file_path, "r") as cached_file_reader:
+        if self.is_file_binary(cached_file_path):
+            read_mode = "rb"
+        else:
+            read_mode = "r"
+
+        with open(cached_file_path, read_mode) as cached_file_reader:
             code = cached_file_reader.read()
         return code
 
@@ -114,3 +119,11 @@ class string_cache:
 
         tmpdirname = tempfile.mkdtemp()
         return tmpdirname
+
+    def is_file_binary(self, file_path: str) -> bool:
+        try:
+            with open(file_path, 'r') as fp:
+                fp.read(16)
+                return False
+        except UnicodeDecodeError:
+                return True

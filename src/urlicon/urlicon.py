@@ -7,12 +7,12 @@ from bs4 import BeautifulSoup
 from dotenv import load_dotenv
 
 from urlicon import urls
-from urlicon.string_cache import string_cache
+from urlicon.simple_cache import simple_cache
 
 load_dotenv()
 
-STRING_CACHE_ROOT_DIR = os.getenv("STRING_CACHE_ROOT_DIR", None)
-cache = string_cache(cache_folder=STRING_CACHE_ROOT_DIR)
+SIMPLE_CACHE_ROOT_DIR = os.getenv("SIMPLE_CACHE_ROOT_DIR", None)
+cache = simple_cache(cache_folder=SIMPLE_CACHE_ROOT_DIR)
 
 
 def get_url_icon(url):
@@ -152,6 +152,14 @@ def requests_get(url):
     if req.status_code != 200:
         return None
 
-    code = req.text
+    code = req.content
     cache.set(text=code, cache_id=cache_prefix + url)
     return code
+
+def is_file_binary(file_path: str) -> bool:
+    try:
+        with open(file_path, 'r') as fp:
+            fp.read(16)
+            return False
+    except UnicodeDecodeError:
+            return True

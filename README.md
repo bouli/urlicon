@@ -33,16 +33,16 @@ print("icon:", icon_url)
 `URLicon` use a simple "cache" method to avoid unecessary URL requests.
 It uses a [temp dir](https://docs.python.org/3/library/tempfile.html) for each
 execution. But you can define a your own directory and use the cache as much as
-you want setting `STRING_CACHE_ROOT_DIR` env var.
+you want setting `SIMPLE_CACHE_ROOT_DIR` env var.
 
 ```python
-STRING_CACHE_ROOT_DIR = os.getenv("STRING_CACHE_ROOT_DIR", None)
-cache = string_cache(cache_folder=STRING_CACHE_ROOT_DIR)
+SIMPLE_CACHE_ROOT_DIR = os.getenv("SIMPLE_CACHE_ROOT_DIR", None)
+cache = simple_cache(cache_folder=SIMPLE_CACHE_ROOT_DIR)
 ```
 
 And you can clean the cache with:
 ```python
-urlicon.string_cache.clean()
+urlicon.simple_cache.clean()
 ```
 
 ## See Also
