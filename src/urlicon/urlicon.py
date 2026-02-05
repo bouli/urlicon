@@ -53,6 +53,14 @@ def get_meta_icon_from_url(url, url_soup=None):
                 final_icon = soup_icon
         img = final_icon["href"]
 
+        try:
+            url_request = requests_get(url)
+        except:
+            return None
+
+        if url_request is None:
+            img = None
+
     img = urls.ensure_relative_path(img, url)
     return img, url_soup
 
