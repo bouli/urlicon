@@ -54,9 +54,9 @@ def get_meta_icon_from_url(url, url_soup=None):
         img = final_icon["href"]
 
         try:
-            url_request = requests_get(url)
+            url_request = requests_get(img)
         except:
-            return None
+            return None, url_soup
 
         if url_request is None:
             img = None
@@ -99,7 +99,7 @@ def get_favicon_from_url(url):
     except:
         return None
 
-    if favicon_request is None or "html" in favicon_request[:150]:
+    if favicon_request is None or "html" in str(favicon_request)[:150]:
         return None
     else:
         return favicon
