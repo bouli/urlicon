@@ -1,18 +1,19 @@
+import os
 import re
 import urllib
-import os
+
 import requests
 from bs4 import BeautifulSoup
+from dotenv import load_dotenv
 
 from urlicon import urls
 from urlicon.string_cache import string_cache
-
-from dotenv import load_dotenv
 
 load_dotenv()
 
 STRING_CACHE_ROOT_DIR = os.getenv("STRING_CACHE_ROOT_DIR", None)
 cache = string_cache(cache_folder=STRING_CACHE_ROOT_DIR)
+
 
 def get_url_icon(url):
 
@@ -138,6 +139,7 @@ def get_img_from_a_soup_item(soup_item, domain):
     else:
         img = get_url_icon(soup_item["href"])
     return img
+
 
 def requests_get(url):
     cache_prefix = "sniff-urf:"
