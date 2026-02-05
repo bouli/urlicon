@@ -39,9 +39,11 @@ def get_url_icon(url):
 
     return get_default_img(text=url)
 
+
 def get_url_content_file_icon(url):
     icon_url = get_url_icon(url)
     return requests_get(icon_url)
+
 
 def get_meta_icon_from_url(url, url_soup=None):
     soup_icons, url_soup = get_soup_icons_from_url(url, url_soup)
