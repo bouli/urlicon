@@ -30,19 +30,19 @@ print("icon:", icon_url)
 
 ### Caching
 
-`URLicon` use a simple "cache" method to avoid unecessary URL requests.
+`URLicon` use the [unforgettable "cache"](https://github.com/bouli/unforgettable) to avoid unecessary URL requests.
 It uses a [temp dir](https://docs.python.org/3/library/tempfile.html) for each
 execution. But you can define a your own directory and use the cache as much as
 you want setting `SIMPLE_CACHE_ROOT_DIR` env var.
 
 ```python
 SIMPLE_CACHE_ROOT_DIR = os.getenv("SIMPLE_CACHE_ROOT_DIR", None)
-cache = simple_cache(cache_folder=SIMPLE_CACHE_ROOT_DIR)
+cache = unforgettable(cache_folder=SIMPLE_CACHE_ROOT_DIR)
 ```
 
 And you can clean the cache with:
 ```python
-urlicon.simple_cache.clean()
+urlicon.unforgettable.clean()
 ```
 
 ## See Also

@@ -172,6 +172,15 @@ wheels = [
 ]
 
 [[package]]
+name = "unforgettable"
+version = "0.1.0"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/52/38/8898214fa2549fd940668f6c6c530778d21135b15a6d2d77d348c7768039/unforgettable-0.1.0.tar.gz", hash = "sha256:f1f01d6ab903b6c883b8196e76d5fbe28109179dafc3e1fab1da62de99fe794c", size = 2920, upload-time = "2026-02-05T12:19:17.385Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/9d/dc/c44011eed98818ad99948c92620c0e341fd59d3529dc5e81163ee0d562ea/unforgettable-0.1.0-py3-none-any.whl", hash = "sha256:b6ea7d967e5c38c8ea4bbf2eeb1aa0e1865e67b42de051efceccd6e1b72235e5", size = 2978, upload-time = "2026-02-05T12:19:15.713Z" },
+]
+
+[[package]]
 name = "urlicon"
 version = "0.2.0"
 source = { virtual = "." }
@@ -179,6 +188,7 @@ dependencies = [
     { name = "bs4" },
     { name = "dotenv" },
     { name = "requests" },
+    { name = "unforgettable" },
 ]
 
 [package.metadata]
@@ -186,6 +196,7 @@ requires-dist = [
     { name = "bs4", specifier = ">=0.0.2" },
     { name = "dotenv", specifier = ">=0.9.9" },
     { name = "requests", specifier = ">=2.32.5" },
+    { name = "unforgettable" },
 ]
 
 [[package]]

@@ -7,12 +7,12 @@ from bs4 import BeautifulSoup
 from dotenv import load_dotenv
 
 from urlicon import urls
-from urlicon.simple_cache import simple_cache
+from unforgettable import unforgettable
 
 load_dotenv()
 
 SIMPLE_CACHE_ROOT_DIR = os.getenv("SIMPLE_CACHE_ROOT_DIR", None)
-cache = simple_cache(cache_folder=SIMPLE_CACHE_ROOT_DIR)
+cache = unforgettable(cache_folder=SIMPLE_CACHE_ROOT_DIR)
 
 
 def get_url_icon(url):
@@ -153,7 +153,7 @@ def requests_get(url):
         return None
 
     code = req.content
-    cache.set(text=code, cache_id=cache_prefix + url)
+    cache.set(content=code, cache_id=cache_prefix + url)
     return code
 
 
