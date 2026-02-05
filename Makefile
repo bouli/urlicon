@@ -13,4 +13,4 @@ report:
 prepare:
 	rm -rf dist
 	rm -rf build
-	git log v0.2.2..HEAD --oneline --format="* %h %s (%an)" > CHANGELOG.md
+	git log v0.2.3..HEAD --oneline --format="* %h %s (%an)" > CHANGELOG.md
