@@ -1,4 +1,4 @@
-# URLicon - v0.2.4
+# URLicon - v0.2.5
 
 `URLicon` helps you to discover an possible icon from a URL.
 

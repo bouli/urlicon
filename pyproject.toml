@@ -1,6 +1,6 @@
 [project]
 name = "urlicon"
-version = "0.2.4"
+version = "0.2.5"
 license = "MIT"
 description = "`URLicon` helps you to discover an possible icon from a URL."
 authors = [
