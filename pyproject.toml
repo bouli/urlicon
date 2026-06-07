@@ -15,6 +15,15 @@ dependencies = [
     "unforgettable>=0.1.1",
 ]
 
+[dependency-groups]
+dev = [
+    "coverage>=7.12.0",
+    "pytest>=9.0.1",
+]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+
 [tool.bumpversion]
 tag = true
 tag_name = "v{new_version}"
